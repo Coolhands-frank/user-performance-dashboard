@@ -29,8 +29,8 @@ A responsive dashboard built with **Next.js**, **Tailwind CSS**, **Recharts**, a
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/quiz-dashboard.git
-cd quiz-dashboard
+git clone https://github.com/Coolhands-frank/user-performance-dashboard.git
+cd user-performance-dashboard
 ```
 
 ### 2. Install dependencies
@@ -66,3 +66,4 @@ Visit `http://localhost:3000` 🚀
 ## 🌍 Deployment
 
 #### Deployed on Render
+Live Link: https://whatbytes-skill-test.onrender.com/
