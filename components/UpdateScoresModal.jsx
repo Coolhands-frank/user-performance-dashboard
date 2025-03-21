@@ -75,6 +75,7 @@ const UpdateScoresModal = () => {
                 <div className="md:w-1/3">
                   <input
                     type="number"
+                    placeholder="Percentile"
                     {...register('percentile', {
                       required: 'required | percentile 0-100',
                       min: { value: 0, message: 'must be ≥ 0' },
@@ -95,6 +96,7 @@ const UpdateScoresModal = () => {
                 <div className="md:w-1/3">
                   <input
                     type="number"
+                    placeholder="Score"
                     {...register('currentScore', {
                       required: 'value required | must be < 15',
                       min: { value: 0, message: 'must be ≥ 0' },
