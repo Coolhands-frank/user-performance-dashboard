@@ -26,7 +26,7 @@ export default function LineGraph() {
   return (
     <div className="w-full h-64 p-4">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} key={percentile}>
+        <LineChart data={data}>
           {/* X-Axis */}
           <XAxis
             dataKey="percentile"
