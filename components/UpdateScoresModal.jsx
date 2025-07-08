@@ -1,13 +1,32 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useChart } from '../app/context/ChartContext';
 
 const UpdateScoresModal = () => {
   const [open, setOpen] = useState(false);
   const { updateScores } = useChart();
+  const scoresModalRef = useRef(null)
 
+  
+      useEffect(() => {
+          // Function to handle outside clicks
+          const handleClickOutside = (event) => {
+            if (scoresModalRef.current && !scoresModalRef.current.contains(event.target)) {
+              setOpen(false); // Close the sidebar if clicked outside
+            }
+          };
+      
+          if (open) {
+              document.addEventListener("mousedown", handleClickOutside); // Detect clicks
+          }
+      
+          return () => {
+              document.removeEventListener("mousedown", handleClickOutside);
+          };
+      }, [open]);
+  
   const {
     register,
     handleSubmit,
@@ -39,7 +58,7 @@ const UpdateScoresModal = () => {
 
       {open && (
         <div className="fixed inset-0 bg-black/60 flex justify-center items-center z-10">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-xl ">
+          <div ref={scoresModalRef} className="bg-white p-6 rounded-lg shadow-lg w-full max-w-xl ">
             <div className="flex justify-between items-center mb-6">
               <h2 className="text-xl font-bold ">Update scores</h2>
               <img src="/html-logo.png" alt="HTML5" className="w-8 h-8" />
